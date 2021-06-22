@@ -35,9 +35,18 @@ export default function Home() {
             height: 180,
             width: 300,
             marginLeft: 16,
-            borderRadius: 8,
+            borderRadius: 16,
             justifyContent: "space-between",
             padding: "4%",
+              shadowColor: "#000",
+              shadowOffset: {
+                  width: 0,
+                  height: 9,
+              },
+              shadowOpacity: 0.50,
+              shadowRadius: 12.35,
+
+              elevation: 19,
           }}
           colors={["#b174ff", "#a095fd", "#8eb8fb"]}
           start={{ x: 0.2, y: 1 }}
@@ -66,10 +75,13 @@ export default function Home() {
                 Your balance is equivalent
               </Text>
             </View>
-            <View style={{ backgroundColor: "transparent" }}>
+            <View style={{ backgroundColor: "transparent",
+                top: '1%'
+
+            }}>
               <Icon name="bitcoin" style={{
-                  transform: [{ rotate: '-12deg'}]
-              }} color="white" type="font-awesome-5" />
+                  transform: [{ rotate: '-12deg'}],
+              }} color="white" type="font-awesome-5" size={32} />
             </View>
           </View>
           <View
@@ -83,7 +95,7 @@ export default function Home() {
             <TouchableOpacity
               style={{
                 height: 32,
-                backgroundColor: "#ba82ff",
+                backgroundColor: "#ba92ff",
                 width: "50%",
                 borderRadius: 4,
                 justifyContent: "center",
@@ -102,7 +114,7 @@ export default function Home() {
             <TouchableOpacity
               style={{
                 height: 32,
-                backgroundColor: "#ba82ff",
+                backgroundColor: "#ba92ff",
                 width: "60%",
                 borderRadius: 4,
                 justifyContent: "center",
@@ -126,9 +138,10 @@ export default function Home() {
                   height: 180,
                   width: 300,
                   marginLeft: 16,
-                  borderRadius: 8,
+                  borderRadius: 16,
                   justifyContent: "space-between",
                   padding: "4%",
+
               }}
               colors={["#e25482", "#e25482", "#8eb8fb"]}
               start={{ x: 0.2, y: 1 }}
@@ -213,7 +226,27 @@ export default function Home() {
           </LinearGradient>
       </ScrollView>
 
-      <View style={{ flex: 2 }}></View>
+      <View style={{ flex: 1.8,               paddingHorizontal: '6%',
+      }}>
+          <View style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginTop: '5%'
+          }}>
+              <Text style={{
+                  color: '#808080',
+                  fontWeight: "600"
+              }}>Charts</Text>
+              <Text style={{
+                  color: "#e25482",
+                  fontWeight: "600"
+              }}>See all</Text>
+          </View>
+
+          <View>
+
+          </View>
+      </View>
     </Layout>
   );
 }
