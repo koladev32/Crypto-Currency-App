@@ -17,14 +17,17 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      tabBarOptions={{
+        activeTintColor: Colors[colorScheme].tint,
+        showLabel: false,
+      }}
     >
       <BottomTab.Screen
         name="Home"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="grid-outline" color="red" />
           ),
         }}
       />
@@ -33,7 +36,16 @@ export default function BottomTabNavigator() {
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="chatbubbles-outline" color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="TabThree"
+        component={TabTwoNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="person-outline" color={color} />
           ),
         }}
       />
@@ -45,7 +57,7 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof Ionicons>["name"];
   color: string;
 }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <Ionicons size={24} style={{ marginBottom: -3 }} {...props} />;
 }
 
 const TabOneStack = createStackNavigator<TabOneParamList>();
@@ -78,5 +90,19 @@ function TabTwoNavigator() {
         options={{ headerTitle: "Tab Two Title" }}
       />
     </TabTwoStack.Navigator>
+  );
+}
+
+const TabThreeStack = createStackNavigator<TabTwoParamList>();
+
+function TabThreeNavigator() {
+  return (
+    <TabThreeStack.Navigator>
+      <TabThreeStack.Screen
+        name="TabTwoScreen"
+        component={TabTwoScreen}
+        options={{ headerTitle: "Tab Two Title" }}
+      />
+    </TabThreeStack.Navigator>
   );
 }
